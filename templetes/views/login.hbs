@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+  <div class="main">
+    {{>navbar2}}
+    <div class="mm2">
+      <div class="container">
+        <div class="left-side">
+          <h2>TRAVEL IS THE ONLY THING YOU BUY THAT MAKES YOU RICHER</h2>
+        </div>
+        <div class="right-side">
+          <h1>TRAVEL BLOGGER</h1>
+          <div class="social-login">
+
+          </div>
+          <p style="text-align: center; margin-bottom: 20px;">or use your email account</p>
+          <form action="/loginuser" method="post">
+            <div class="input-group">
+              <label>Username:</label>
+              <input type="text" name="username" placeholder="Enter your email" />
+            </div>
+            <div class="input-group">
+              <label>Password</label>
+              <input type="password" name="password" placeholder="Enter your password" />
+            </div>
+            <div class="input-group">
+              <label for="">User Type</label>
+              <select name="usertype" id="">
+                <option value="user">user</option>
+                <option value="admin">admin</option>
+              </select>
+            </div>
+
+            <div class="forgot">
+              <a href="/forgotpassword" style="color: #fff;">forget password</a>
+              <a href="/register" style="color: #fff;">Not register yet</a>
+            </div>
+            <button type="submit" class="enter-btn">ENTER</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
+{{>footer}}
+</body>
+
+</html>

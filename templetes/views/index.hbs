@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travelite - Tours & Travels</title>
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+  <div class="banner">
+    <video src="images/bgvid.mp4" type="video/mp4" autoplay muted loop></video>
+
+    {{!-- header --}}
+    <div class="content">
+      {{> navbar2 }}
+
+      <div class="title">
+        <h1>TRAVELITE TRAVELS</h1>
+        <p>Plan your trip with us and travel around India with the most affordable packages!</p>
+        <a href="/register" class="button">Register Now!</a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <header class="hero">
+    <h1>Explore Incredible India</h1>
+    <p>Your journey begins here. Discover amazing destinations, culture, and history.</p><br>
+    <a href="/package" class="btn">Browse Tours</a>
+  </header>
+
+  <section class="highlights">
+    <h2>Why Travel With Us?</h2>
+    <div class="rowitems">
+      <div class="container-box">
+        <img src="images/travel-agency.png" alt="Expert Guides">
+        <h3>Expert Guides</h3>
+        <p>Our professional local guides ensure you have a memorable and informative trip.</p>
+      </div>
+      <div class="container-box">
+        <img src="images/24-7.png" alt="24/7 Support">
+        <h3>24/7 Support</h3>
+        <p>We are always with you. Enjoy a hassle-free vacation with our assistance.</p>
+      </div>
+      <div class="container-box">
+        <img src="images/best-price.png" alt="Best Prices">
+        <h3>Affordable Prices</h3>
+        <p>Experience top destinations at unbeatable prices with the best value.</p>
+      </div>
+    </div>
+  </section>
+  <section class="container">
+    <div class="text">
+      <h2>We have the best services available for you!</h2>
+    </div>
+    <div class="rowitems">
+
+
+      <div class="container-box">
+        <div class="container-image">
+          <img src="images/2a.jpg" alt="Food Services">
+        </div>
+        <h4>Food Services</h4>
+        <p>Catering</p>
+      </div>
+
+      <div class="container-box">
+        <div class="container-image">
+          <img src="images/3a.jpg" alt="Travel Services">
+        </div>
+        <h4>Travel Services</h4>
+        <p>Pick-up/drop</p>
+      </div>
+
+      <div class="container-box">
+        <div class="container-image">
+          <img src="images/4a.jpg" alt="Hotel Services">
+        </div>
+        <h4>Hotel Services</h4>
+        <p>Check-in/out</p>
+      </div>
+
+    </div>
+
+    </div>
+
+  </section>
+  <section class="featured">
+    <h2>Featured Tours</h2>
+    <div class="destination-container">
+      {{#each data}}
+      <div class="destination-card">
+        <img src="{{this.img_url}}" alt="{{this.title}}" />
+        <h2>{{this.title}}</h2>
+        <p>{{this.description}}</p>
+        <p><strong>Price:</strong> ₹{{this.price}}</p>
+        <p><strong>Duration:</strong> {{this.duration}}</p>
+        <p><strong>Route:</strong> {{this.start_location}} → {{this.end_location}}</p>
+      </div>
+      {{/each}}
+    </div>
+    <div>
+      <a href="/package" class="btn">Get More</a>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h2>Stay Updated</h2>
+    <p>Get the latest tour offers and travel tips in your inbox.</p>
+    <form action="/subscribe" method="POST">
+      <input type="text" name="email" placeholder="Enter your email" required>
+      <button type="submit" class="btn">Subscribe</button>
+    </form>
+  </section>
+
+<div class="log">
+  <a href="/logout"><button class="logout">Logout</button></a>
+</div>
+  {{>footer}}
+
+</body>
+
+</html>

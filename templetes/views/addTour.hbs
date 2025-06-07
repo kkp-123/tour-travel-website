@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Tour Page</title>
+    <link rel="stylesheet" href="css/addtour.css">
+</head>
+<body>
+
+    {{>adminnavbar}}
+
+    <form action="/addtour" method="post" class="tour-form">
+  <h2>Add New Tour</h2>
+
+  <label for="title">Title*</label>
+  <input type="text" id="title" name="title" required>
+
+  <label for="description">Description</label>
+  <textarea id="description" name="description" rows="4"></textarea>
+
+  <label for="price">Price</label>
+  <input type="number" id="price" name="price">
+
+  <label for="duration">Duration</label>
+  <input type="text" id="duration" name="duration">
+
+  <label for="start_location">Start Location</label>
+  <input type="text" id="start_location" name="start_location">
+
+  <label for="end_location">End Location</label>
+  <input type="text" id="end_location" name="end_location">
+
+  <label for="img_url">Image URL</label>
+  <input type="url" id="img_url" name="img_url">
+
+  <button type="submit">Add Tour</button>
+</form>
+
+    
+</body>
+</html>

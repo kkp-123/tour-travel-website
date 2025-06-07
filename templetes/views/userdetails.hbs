@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .admin-navbar {
+    background: #333;
+    color: white;
+    padding: 1rem;
+  }
+  
+  .admin-navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .admin-navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+  }
+  .user-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 300px;
+}
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background-color: #444;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 200px;
+      padding: 1rem;
+      z-index: 1000;
+    }
+  
+    .nav-links.show-nav {
+      display: flex;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  }
+  
+    </style>
+</head>
+<body>
+    
+    {{>adminnavbar}}
+
+    <div class="user-card">
+        <h1>{{data.name}}</h1>
+        <P><strong>Age:</strong>{{data.age}}</P>
+        <P><strong>UserType:</strong>{{data.usertype}}</P>
+        <P><strong>Email:</strong>{{data.email}}</P>
+        <p><strong>Mobile No:</strong> {{data.mobile}}</p>
+        <p><strong>Address</strong> {{data.address}}</p>
+        <P><strong>username:</strong>{{data.username}}</P>
+        <p><strong>password:</strong> {{data.password}}</p>
+        <p><strong>Registered At:</strong> {{data.createdAt}}</p>
+      </div>
+</body>
+</html>

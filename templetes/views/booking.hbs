@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Destination</title>
+  <link rel="stylesheet" href="public/css/booking.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .navbar {
+      background-color: #174082;
+      color: white;
+      padding: 15px 20px;
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin-top: 10px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        padding: 10px 0;
+      }
+    }
+
+
+
+    .destination-container {
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 500px;
+      margin: auto;
+
+
+    }
+
+    .destination-card {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .destination-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .destination-card h2 {
+      font-size: 1.5rem;
+      margin: 1rem;
+      color: #333;
+    }
+
+    .destination-card p {
+      margin: 0 1rem 1rem;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .destination-card .btn {
+      display: block;
+      margin: 1rem;
+      padding: 0.7rem;
+      text-align: center;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+
+    .destination-card .btn:hover {
+      background-color: #005fa3;
+    }
+
+    .destination-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .package-title {
+      text-align: center;
+    }
+
+    .package-title h2 {
+      font-size: 40px;
+      font-weight: 650;
+      padding-top: 75px;
+      padding-bottom: 10px;
+      line-height: 2;
+    }
+
+    .package-content {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .image {
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      cursor: pointer;
+      filter: brightness(95%);
+    }
+
+    .image img {
+      width: 100%;
+      height: 500px;
+      border-radius: 30px;
+    }
+
+    .image h3 {
+      color: white;
+      position: absolute;
+      font-size: 30px;
+      font-weight: 600;
+      text-align: center;
+      top: 10px;
+      right: 20px;
+    }
+
+    .dest-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 15px;
+      margin-bottom: 50px;
+    }
+
+    .location h4 {
+      font-size: 25px;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .pac-details li {
+      font-size: 19px;
+      color: #4c4c4c;
+      margin-left: 15px;
+      margin-bottom: 2px;
+      list-style-type: disc;
+    }
+
+    .image:hover {
+      filter: brightness(120%);
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+
+<body>
+  {{>navbar2}}
+  <div class="destination-container">
+    {{#each data}}
+    <div class="destination-card">
+      <img src="{{this.img_url}}" alt="{{this.title}}" />
+      <h2>{{this.title}}</h2>
+      <p>{{this.description}}</p>
+      <p><strong>Price:</strong> ₹{{this.price}}</p>
+      <p><strong>Duration:</strong> {{this.duration}}</p>
+      <p><strong>Route:</strong> {{this.start_location}} → {{this.end_location}}</p>
+      <a href="#book" class="btn">Book now</a>
+    </div>
+    {{/each}}
+
+  </div>
+
+  {{!-- packages --}}
+
+  <section class="package" id="package">
+    <div class="package-title">
+      <h2>Packages</h2>
+    </div>
+
+    <div class="package-content">
+
+      <div class="box">
+        <div class="image">
+          <img src="/images/p1.jpg" alt="">
+          <h3>Rs.{{num1}}/-</h3>
+        </div>
+
+        <div class="dest-content">
+          <div class="location">
+            <h4>Bronze</h4>
+            <ul class="pac-details">
+              <li>2 Star Hotel</li>
+              <li>Free photo Session</li>
+              <li>Friendly Tour Guide</li>
+              <li>24/7 Customer Help Center</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="image">
+          <img src="/images/p2.jpg" alt="">
+          <h3>Rs.{{num2}}/-</h3>
+        </div>
+
+        <div class="dest-content">
+          <div class="location">
+            <h4>Silver</h4>
+            <ul class="pac-details">
+              <li>3 Star Hotel</li>
+              <li>Free photo Session</li>
+              <li>Friendly Tour Guide</li>
+              <li>24/7 Customer Help Center</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="image">
+          <img src="/images/p3.jpg" alt="">
+          <h3>Rs.{{num3}}/-</h3>
+        </div>
+
+        <div class="dest-content">
+          <div class="location">
+            <h4>Gold</h4>
+            <ul class="pac-details">
+              <li>4 Star Hotel</li>
+              <li>Breakfast and Dinner</li>
+              <li>Free photo Session</li>
+              <li>Friendly Tour Guide</li>
+              <li>24/7 Customer Help Center</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="book">
+      <h1>
+        Booking form
+      </h1>
+      <div class="container mt-4">
+        <form action="/book" method="post">
+          <div class="row g-3">
+            <input type="text" name="userid" id="" value="{{userid}}" hidden>
+
+            <!-- Name -->
+            <div class="col-md-6">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" name="name" id="name" required>
+            </div>
+
+            <!-- Title -->
+            <div class="col-md-6">
+              <label for="title" class="form-label">Title</label>
+              {{#each data}}
+              <input type="text" name="tourid" id="" value="{{this._id}}" hidden>
+
+              <input type="text" class="form-control" name="title" id="title" value="{{this.title}}" readonly>
+              {{/each}}
+            </div>
+
+            <!-- Category -->
+            <div class="col-md-6">
+              <label for="catagory" class="form-label">Category</label>
+              <select class="form-select" name="catagory" id="catagory" required>
+                <option value="" disabled selected>Select Category</option>
+                <option value="bronze" data-price="{{num1}}">Bronze</option>
+                <option value="silver" data-price="{{num2}}">Silver</option>
+                <option value="gold" data-price="{{num3}}">Gold</option>
+              </select>
+            </div>
+
+            <!-- Contact Number -->
+            <div class="col-md-6">
+              <label for="contactno" class="form-label">Contact Number</label>
+              <input type="text" class="form-control" name="contactno" id="contactno">
+            </div>
+
+            <!-- Email -->
+            <div class="col-md-6">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" name="email" id="email">
+            </div>
+
+            <!-- Departure Date -->
+            <div class="col-md-6">
+              <label for="departure_date" class="form-label">Departure Date</label>
+              <input type="date" class="form-control" name="departure_date" id="departure_date">
+            </div>
+
+            <!-- Persons -->
+            <div class="col-md-6">
+              <label for="persons" class="form-label">Number of Persons</label>
+              <input type="number" class="form-control" name="persons" id="persons" min="1" value="1">
+            </div>
+
+            <!-- Price (calculated) -->
+            <div class="col-md-6">
+              <label for="price" class="form-label">Total Price ($)</label>
+              <input type="text" class="form-control" name="price" id="price" readonly>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Submit Booking</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- JavaScript to auto-calculate price -->
+      <script>
+        const catagory = document.getElementById('catagory');
+        const persons = document.getElementById('persons');
+        const price = document.getElementById('price');
+
+        function updatePrice() {
+          const selected = catagory.options[catagory.selectedIndex];
+          const unitPrice = parseFloat(selected.getAttribute('data-price')) || 0;
+          const count = parseInt(persons.value) || 1;
+          price.value = unitPrice * count;
+        }
+
+        catagory.addEventListener('change', updatePrice);
+        persons.addEventListener('input', updatePrice);
+      </script>
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>

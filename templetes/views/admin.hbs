@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home Page</title>
+    <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body>
+{{> adminnavbar}}
+
+<div class="admin-dashboard">
+  <h1>Admin Dashboard</h1>
+  <div class="dashboard-cards">
+
+    <div class="card">
+      <i class="fas fa-users icon"></i>
+      <h2>Total Users</h2>
+      <p>{{userCount}}</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-map-marked-alt icon"></i>
+      <h2>Total Tours</h2>
+      <p>{{tourCount}}</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-ticket-alt icon"></i>
+      <h2>Total Bookings</h2>
+      <p>{{bookingCount}}</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-ticket-alt icon"></i>
+      <h2>Total Subscribers</h2>
+      <p>{{subscribeCount}}</p>
+    </div>
+
+
+  </div>
+  <div class="dashboard-cards">
+    
+    <a href="addtour" class="card">
+      <i class="fas fa-plus-circle icon"></i>
+      <h2>Add Tour</h2>
+    </a>
+
+    <a href="/viewuser" class="card">
+      <i class="fas fa-address-book icon"></i>
+      <h2>View Users</h2>
+    </a>
+
+    <a href="/package" class="card">
+      <i class="fas fa-globe icon"></i>
+      <h2>View Tours</h2>
+    </a>
+    <a href="/adminbooking" class="card">
+      <i class="fas fa-globe icon"></i>
+      <h2>View Bookings</h2>
+    </a>
+  </div>
+</div>
+
+<!-- Font Awesome (for icons) -->
+
+<div class="heading">
+  <h1>Recent Tours</h1>
+</div>
+
+  {{#if recentTours.length}}
+    
+    <div class="recent-tours">
+      {{#each recentTours}}
+        <div class="tour-item">
+          <img src="{{this.img_url}}" alt="{{this.title}}" />
+          <div>
+            <h3>{{this.title}}</h3>
+            <p>{{this.description}}</p>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <p>No tours available.</p>
+  {{/if}}
+</div>
+{{>footer}}
+</body>
+</html>

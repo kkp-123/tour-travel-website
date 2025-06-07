@@ -1,0 +1,106 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .admin-dashboard {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .admin-dashboard h1 {
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  .dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #007bff;
+  }
+  
+  .card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #28a745;
+  }
+  /* card tour */
+  .recent-tours {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  
+  .tour-item {
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    transition: transform 0.3s ease;
+  }
+  
+  .tour-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .tour-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .tour-item div {
+    padding: 15px;
+  }
+  
+  .tour-item h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .tour-item p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.4;
+  }
+  .heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  

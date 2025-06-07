@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packages</title>
+  <link rel="stylesheet" href="css/package.css">
+</head>
+
+<body>
+  {{>navbar2}}
+  <h1>Popular Destinations</h1>
+  <div class="destination-container">
+    {{#each destinations}}
+    <div class="destination-card">
+      <img src="{{this.img_url}}" alt="{{this.title}}" />
+      <h2>{{this.title}}</h2>
+      <p>{{this.description}}</p>
+      <a class="btn" href="package/{{this._id}}">get more details</a>
+
+    </div>
+    {{/each}}
+  </div>
+
+  {{>footer}}
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+        .booking-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 20px;
+}
+
+.booking-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 300px;
+}
+
+    </style>
+</head>
+<body>
+    {{>navbar2}}
+
+<h2>Your Bookings</h2>
+
+{{#if data.length}}
+  <div class="booking-container">
+    {{#each data}}
+      <div class="booking-card">
+        <h3>{{this.title}}</h3>
+        <P><strong>Name:</strong>{{this.name}}</P>
+        <P><strong>catagory:</strong>{{this.catagory}}</P>
+        <p><strong>contactno:</strong> {{this.contactno}}</p>
+        <P><strong>email:</strong>{{this.email}}</P>
+        <p><strong>Number of People:</strong> {{this.persons}}</p>
+        <p><strong>Total Price:</strong> ₹{{this.price}}</p>
+        <p><strong>Booked On:</strong> {{this.created_at}}</p>
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <p>You have no bookings.</p>
+{{/if}}
+
+</body>
+</html>
