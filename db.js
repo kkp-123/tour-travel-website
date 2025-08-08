@@ -9,7 +9,9 @@ require('dotenv').config();
 const mongoUrl = process.env.DB_URL;
 
 
-mn.connect(mongoUrl)
+mn.connect(mongoUrl,{
+    ssl:true
+})
 
 const db = mn.connection;
 
