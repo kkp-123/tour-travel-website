@@ -11,8 +11,11 @@ require('dotenv').config();
 
 const uri = "mongodb+srv://krishpatel1604:kp902319@cluster0.7pfbkr3.mongodb.net/test?retryWrites=true&w=majority"
 mn.connect(uri,{
-    ssl:true
+  tls: true,
+  tlsAllowInvalidCertificates: false,
+  tlsInsecure: false,
 })
+
 
 const db = mn.connection;
 
