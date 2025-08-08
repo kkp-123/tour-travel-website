@@ -10,9 +10,8 @@ const mongoUrl = process.env.DB_URL;
 
 
 mn.connect(mongoUrl,{
-    sslValidate: false,
-    // useNewUrlParser: true,
-    // userUnifiedTopology : true
+    useNewUrlParser: true,
+    userUnifiedTopology : true
 })
 
 const db = mn.connection;
