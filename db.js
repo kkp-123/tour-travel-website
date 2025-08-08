@@ -1,10 +1,13 @@
 const mn = require('mongoose');
+const User = require('./models/user');
 
 require('dotenv').config();
 // define the mongoDB connection URL
 // const mongoUrl ='mongodb://127.0.0.1:27017/project'
-const mongoUrl = process.env.DB_LOCAL;
-// const mongoUrl = "mongodb+srv://krishpatel1604:Kp902319@cluster0.cy1rf.mongodb.net/";
+// const mongoUrl = process.env.DB_LOCAL;
+// const mongoUrl2 = "mongodb+srv://krishpatel1604:kp902319@cluster0.7pfbkr3.mongodb.net/"
+const mongoUrl = process.env.DB_URL;
+
 
 mn.connect(mongoUrl,{
 
@@ -23,6 +26,7 @@ db.on('error' , (err) => {
 db.on('disconnected' , () => {
     console.log("mongodb disconnected")
 })
+
 
 // Export the databse connection
 
