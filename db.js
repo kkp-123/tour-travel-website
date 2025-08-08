@@ -6,10 +6,11 @@ require('dotenv').config();
 // const mongoUrl ='mongodb://127.0.0.1:27017/project'
 // const mongoUrl = process.env.DB_LOCAL;
 // const mongoUrl2 = "mongodb+srv://krishpatel1604:kp902319@cluster0.7pfbkr3.mongodb.net/"
-const mongoUrl = process.env.DB_URL;
+// const mongoUrl = process.env.DB_URL;
 
 
-mn.connect(mongoUrl,{
+const uri = "mongodb+srv://krishpatel1604:kp902319@cluster0.7pfbkr3.mongodb.net/test?retryWrites=true&w=majority"
+mn.connect(uri,{
     ssl:true
 })
 
